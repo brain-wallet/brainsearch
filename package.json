@@ -1,0 +1,26 @@
+{
+  "name": "brainsearch",
+  "version": "0.0.0",
+  "description": "brainsearch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brain-wallet/brainsearch.git"
+  },
+  "keywords": [
+    "brainwallet"
+  ],
+  "author": "Melvin Carvalho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brain-wallet/brainsearch/issues"
+  },
+  "homepage": "https://github.com/brain-wallet/brainsearch#readme",
+  "dependencies": {
+    "brainwallet": "^0.0.3"
+  }
+}
