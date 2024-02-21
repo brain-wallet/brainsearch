@@ -8,6 +8,7 @@ var secret = process.argv[2] || process.env['SEARCH'] || '5dc6f805e07a573deffd48
 
 var start = process.env['START'] || 'a'
 var end = process.env['END'] || 'd'
+end = end.split(',')
 
 // var search = ['5ee7d8d3d53bb955414c279e644c882777fd52c3'] // abcd
 // var search = ['5dc6f805e07a573deffd486cb47fdfad598abc07'] // abcdd
@@ -88,13 +89,16 @@ function generateCyhper(i, chars, ascii, len) {
 }
 
 for (var i = 0; i < len ** chars; i++) {
-  var cypher = generateCyhper(i, chars, ascii, len)
-  const secret = start + cypher + end
-  // console.log(secret)
-  const ret = await brainwallet(secret)
-  if (search.includes(ret)) {
-    console.log('########found', secret, ret, i)
-    process.exit(-1)
+  for (const suffix of end) {
+    var cypher = generateCyhper(i, chars, ascii, len)
+    const secret = start + cypher + suffix
+    // console.log(secret)
+    const ret = await brainwallet(secret)
+    if (search.includes(ret)) {
+      console.log('########found', secret, ret, i)
+      process.exit(-1)
+    }
+
   }
 
 }
