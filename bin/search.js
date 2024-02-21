@@ -92,7 +92,7 @@ for (var i = 0; i < len ** chars; i++) {
   for (const suffix of end) {
     var cypher = generateCyhper(i, chars, ascii, len)
     const secret = start + cypher + suffix
-    if (i % 10000 === 0) console.log(secret[0])
+    if (i % 10000 === 0) console.log(secret, i)
     // console.log(secret)
     const ret = await brainwallet(secret)
     if (search.includes(ret)) {
