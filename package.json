@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/brain-wallet/brainsearch#readme",
   "dependencies": {
-    "brainwallet": "^0.0.3"
+    "brainwallet": "^0.0.4"
   }
 }

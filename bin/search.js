@@ -95,7 +95,7 @@ for (var i = 0; i < len ** chars; i++) {
     if (i % 10000 === 0) console.log(secret, i)
     // console.log(secret)
     const ret = await brainwallet(secret)
-    if (search.includes(ret)) {
+    if (search.includes(ret[0]) || search.includes(ret[1])) {
       console.log('########found', secret, ret, i)
       process.exit(-1)
     }
