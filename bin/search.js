@@ -2,16 +2,16 @@
 
 import brainwallet from 'brainwallet'
 
-const secret = process.argv[2] || 'abadf8c4ca8910c74af0525c92b8c8d0aa38d9bf' // acegod
+var secret = process.argv[2] || process.env['SEARCH'] || '5dc6f805e07a573deffd486cb47fdfad598abc07' // acegod
 
 // console.log(secret)
 
-var start = 'a'
-var end = 'd'
+var start = process.env['START'] || 'a'
+var end = process.env['END'] || 'd'
 
 // var search = ['5ee7d8d3d53bb955414c279e644c882777fd52c3'] // abcd
 // var search = ['5dc6f805e07a573deffd486cb47fdfad598abc07'] // abcdd
-var search = [secret] // adbcdd
+var search = secret.split(',') // adbcdd
 
 
 var ascii = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&']
@@ -92,7 +92,7 @@ for (var i = 0; i < len ** chars; i++) {
   const secret = start + cypher + end
   // console.log(secret)
   const ret = await brainwallet(secret)
-  if (ret === search[0]) {
+  if (search.includes(ret)) {
     console.log('########found', secret, ret, i)
     process.exit(-1)
   }
